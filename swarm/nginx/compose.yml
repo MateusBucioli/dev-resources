@@ -1,0 +1,11 @@
+services:
+    nginx:
+        image: nginx:1.26-alpine
+        deploy:
+            replicas: 3
+        ports:
+            - target: 80
+              published: 12080
+        volumes:
+            - /nginx/index.html:/usr/share/nginx/html/index.html
+            - /nginx/default.conf:/etc/nginx/conf.d/default.conf

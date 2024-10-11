@@ -1,0 +1,79 @@
+services:
+    manager:
+        image: docker:dind
+        container_name: manager
+        restart: on-failure:3
+        networks:
+            - swarm-net
+        environment:
+            - DOCKER_TLS_CERTDIR=/certs
+        volumes:
+            - certs:/certs/client
+            - ./scripts:/scripts
+            - ./nginx:/nginx
+        privileged: true
+        entrypoint: sh
+        command: /scripts/init_swarm.sh
+        ports:
+            - target: 12080
+              published: 12080
+        healthcheck:
+            test: ['CMD', 'docker', 'info']
+            interval: 30s
+            timeout: 5s
+            retries: 3
+
+    node02:
+        image: docker:dind
+        container_name: node02
+        restart: on-failure:3
+        privileged: true
+        entrypoint: sh
+        command: /scripts/join_swarm.sh
+        depends_on:
+            manager:
+                condition: service_healthy
+        networks:
+            - swarm-net
+        environment:
+            - DOCKER_TLS_CERTDIR=/certs
+        volumes:
+            - certs:/certs/client
+            - ./scripts:/scripts
+            - ./nginx:/nginx
+        healthcheck:
+            test: ['CMD', 'docker', 'info']
+            interval: 30s
+            timeout: 5s
+            retries: 3
+
+    node03:
+        image: docker:dind
+        container_name: node03
+        restart: on-failure:3
+        privileged: true
+        entrypoint: sh
+        command: /scripts/join_swarm.sh
+        depends_on:
+            manager:
+                condition: service_healthy
+        networks:
+            - swarm-net
+        environment:
+            - DOCKER_TLS_CERTDIR=/certs
+        volumes:
+            - certs:/certs/client
+            - ./scripts:/scripts
+            - ./nginx:/nginx
+        healthcheck:
+            test: ['CMD', 'docker', 'info']
+            interval: 30s
+            timeout: 5s
+            retries: 3
+
+networks:
+    swarm-net:
+        driver: bridge
+
+volumes:
+    certs:
