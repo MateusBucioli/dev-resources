@@ -1,0 +1,22 @@
+# This file needs to be under your user $HOME ex.: C:\Users\mateus\.wslconfig
+[wsl2]
+
+# Use if you want to limit RAM usage (Recommended)
+memory=8GB
+
+# Use if you want to limit CPU usage, can cause some problems
+#processors=2
+
+# Good to have when using docker engine in WSL
+localhostforwarding=true
+
+[experimental]
+# Auto reduce VHD size, work sometimes
+# You can use 'wsl df -h /' to see the disk usage of WSL.
+# Inside the distro, use 'sudo fstrim -av' to resize the filesystem removing unused blocks.
+sparseVhd=true
+
+# Just use if you are having networking problems & have admin access to firewall
+#networkingMode=mirrored
+#dnsTunneling=true
+#firewall=true

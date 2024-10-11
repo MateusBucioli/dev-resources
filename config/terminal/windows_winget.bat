@@ -1,0 +1,11 @@
+winget install Git.Git
+winget install 7zip.7zip
+winget install Microsoft.PowerShell
+winget install Starship.Starship
+winget install GoLang.Go
+winget install Logseq.Logseq
+winget install Microsoft.VisualStudioCode
+winget install BurntSushi.ripgrep.MSVC
+winget install k6.k6
+winget install Python.Python.3.11
+winget install Microsoft.PowerToys
