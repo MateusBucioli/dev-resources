@@ -2,7 +2,11 @@
 - Globais: `~/.config/fish/config.fish`
 - Customizadas (recomendado): `~/.config/fish/conf.d/*.fish`
 
+
+## Docker
+
 - Start docker using `ds`
+
 ```fish
 function ds
         if sudo service docker status | grep -q "not running"
