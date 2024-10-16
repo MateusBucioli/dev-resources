@@ -1,5 +1,6 @@
-# global:  ~/.config/fish/config.fish
-# recomendado:  ~/.config/fish/conf.d/mbm.fish
+# Configurações para o `fish shell`
+- Globais: `~/.config/fish/config.fish`
+- Customizadas (recomendado): `~/.config/fish/conf.d/*.fish`
 
 - Start docker using `ds`
 ```fish
