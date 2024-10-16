@@ -1,4 +1,5 @@
-#  ~/.config/fish/config.fish
+# global:  ~/.config/fish/config.fish
+# recomendado:  ~/.config/fish/conf.d/mbm.fish
 
 - Start docker using `ds`
 ```fish
