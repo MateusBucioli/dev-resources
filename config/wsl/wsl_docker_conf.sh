@@ -40,8 +40,8 @@ sudo service docker start
 # Execute o comando `sudo visudo`
 # No arquivo aberto insira `<USUARIO> ALL=(ALL) NOPASSWD: /usr/bin/dockerd` alterando <USUARIO> para seu usuario do linux
 # Salve e feche o arquivo
-# Execute o comando `sudo usermod -a -G docker $USER`
-# Reinicie o wsl (saindo com exit e no Windows execute `wsl --shutdown`
+# Execute o comando `sudo usermod -aG docker $USER`
+# Reinicie o wsl (saindo com exit e no Windows execute `wsl --shutdown`, ou utilize o coamnd `newgrp docker` para carregar as permissoes do grupo docker
 
 # Caso queira que o Docker inicie com o wsl, execute as instrucoes abaixo (caso esteja usando zsh, troque o bashrc por zshrc)
   # echo  >> ~/.bashrc  
