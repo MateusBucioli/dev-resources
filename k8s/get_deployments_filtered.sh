@@ -1,0 +1,1 @@
+kubectl get deployments --all-namespaces | grep -v -E "^(kube-system|argo|argocd|argo-events|external-dns|external-secrets|cert-manager|aws-lb-controller|operators|gitlab|karpenter|snapscheduler|traefik)\s"
